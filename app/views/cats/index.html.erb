@@ -1,0 +1,13 @@
+<h1>猫一覧</h1>
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>年齢</th>
+  </tr>
+  <% @cats.each do |cat| %>
+    <tr>
+      <td><%= cat.name %></td>
+      <td><%= cat.age %>才</td>
+    </tr>
+  <% end %>
+</table>
