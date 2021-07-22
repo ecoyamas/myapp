@@ -1,0 +1,10 @@
+<h1>猫の登録画面</h1>
+<%= form_with model: @cat do |form| %>
+  <%= form.label '名前' %>
+  <%= form.text_field :name %>
+
+  <%= form.label '年齢' %>
+  <%= form.select :age, options_for_select((1..25).to_a) %>
+
+  <%= form.submit '登録' %>
+<% end %>
