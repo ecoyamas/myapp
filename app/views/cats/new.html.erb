@@ -1,21 +1,33 @@
-<h1>猫の登録画面</h1>
+<div class='cat-form-area'>
+  <h1>猫の登録画面</h1>
 
-<% if @cat.errors.any? %>
-  <div>
-    <ul style="color: red">
-      <% @cat.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @cat.errors.any? %>
+    <div>
+      <ul style="color: red">
+        <% @cat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_with model: @cat, local: true do |form| %>
-  <%= form.label '名前' %>
-  <%= form.text_field :name %>
+  <%= form_with model: @cat, local: true do |form| %>
+    <div class="form-group row">
+      <%= form.label '名前', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
 
-  <%= form.label '年齢' %>
-  <%= form.select :age, options_for_select((1..25).to_a) %>
+    <div class="form-group row">
+      <%= form.label '年齢', class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= form.select :age, options_for_select((1..25).to_a), {}, class: "form-control" %>
+      </div>
+    </div>
 
-  <%= form.submit '登録' %>
-<% end %>
+    <div class="submit-button">
+      <%= form.submit '登録', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
